@@ -1,7 +1,7 @@
 let roadImage;
 
 function preload(){
-  roadImage = loadImage("road.png")
+  roadImage = loadImage("Assets/road.png")
 }
 
 
