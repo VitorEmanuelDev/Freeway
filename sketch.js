@@ -9,14 +9,21 @@ let xPlayer = 70;
 
 //car variables
 let carImageOne;
+let carImageTwo;
+let carImageThree;
 let xCar = 700;
 let yCar = 40;
-
+let xCarTwo = 200;
+let yCarTwo = 260;
+let xCarThree = 100;
+let yCarThree = 50;
 
 function preload(){
   roadImage = loadImage("road.png");
   yourImage = loadImage("you.png");  
   carImageOne = loadImage("car1.png");
+  carImageTwo = loadImage("car-2.png");
+  carImageThree = loadImage("car3.png");
 }
 
 
@@ -38,10 +45,12 @@ function showPlayer() {
 
 function showCars(){
   image(carImageOne,xCar, yCar, 80,40);
+  image(carImageTwo,xCarTwo, yCarTwo, 80,40);
 }
 
 function moveCar(){
-xCar -= 2;
+xCar -= 8;
+xCarTwo -= 5;  
 }
 
 function movePlayer(){
