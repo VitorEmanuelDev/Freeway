@@ -80,15 +80,15 @@ function goBack(){
 //player movements
 function movePlayer(){
 if (keyIsDown (UP_ARROW)){
-  yPlayer -= 3;
+  yPlayer -= 1;
   }
 if (keyIsDown (DOWN_ARROW)){
-  yPlayer += 3;
+  yPlayer += 1;
 }
 if (keyIsDown (RIGHT_ARROW)){
-  xPlayer += 3;
+  xPlayer += 1;
 }
 if (keyIsDown (LEFT_ARROW)){
-  xPlayer -= 3;
+  xPlayer -= 1;
 }
 }
