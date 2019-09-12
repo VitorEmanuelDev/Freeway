@@ -21,11 +21,11 @@ let carImageThree;
 
 //functions being used to get images that are going to be display with the function draw
 function preload(){
-  roadImage = loadImage("road.png");
-  yourImage = loadImage("you.png");  
-  carImageOne = loadImage("car1.png");
-  carImageTwo = loadImage("car-2.png");
-  carImageThree = loadImage("car3.png");
+  roadImage = loadImage("Assets/road.png");
+  yourImage = loadImage("Assets/you.png");  
+  carImageOne = loadImage("Assets/car1.png");
+  carImageTwo = loadImage("Assets/car-2.png");
+  carImageThree = loadImage("Assets/car3.png");
 }
 
 //withou this, nothing can be drawn
