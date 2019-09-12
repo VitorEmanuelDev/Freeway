@@ -9,8 +9,10 @@ let xPlayer = 70;
 //car variables
 let i = 0;
 let yCars = [40, 150, 250];
-let xCars = [100, 700, 800]
+let xCars = [100, 700, 800];
 let carSpeed = [10, 8, 12];
+let xCarLoop = [950, 745, 805];
+let yCarLoop = [50, 150, 250];
 let carImageOne;
 let carImageTwo;
 let carImageThree;
@@ -19,11 +21,11 @@ let carImageThree;
 
 //functions being used to get images that are going to be display with the function draw
 function preload(){
-  roadImage = loadImage("Assets/road.png");
-  yourImage = loadImage("Assets/you.png");  
-  carImageOne = loadImage("Assets/car1.png");
-  carImageTwo = loadImage("Assets/car-2.png");
-  carImageThree = loadImage("Assets/car3.png");
+  roadImage = loadImage("road.png");
+  yourImage = loadImage("you.png");  
+  carImageOne = loadImage("car1.png");
+  carImageTwo = loadImage("car-2.png");
+  carImageThree = loadImage("car3.png");
 }
 
 //withou this, nothing can be drawn
@@ -68,16 +70,16 @@ xCars[2] -= carSpeed[2];
 
 function goBack(){
   if (xCars[0] < -50 ){
-  xCar = 950;
-  yCar = 50  ;
+  xCars[0] = xCarLoop[0];
+  yCars[0] = yCarLoop[0];
   }
   if (xCars[1] < -40 ){
-  xCarTwo = 745;
-  yCarTwo =  150;
+  xCars[1] = xCarLoop[1];
+  yCars[1] = yCarLoop[1];
   }
   if (xCars[2] < -45 ){
-  xCarThree = 805;
-  yCarThree = 250;
+   xCars[2] = xCarLoop[2];
+  yCars[2] = yCarLoop[2];
   }
   
 }
