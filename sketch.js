@@ -26,6 +26,7 @@ function preload(){
   carImageOne = loadImage("Assets/car1.png");
   carImageTwo = loadImage("Assets/car-2.png");
   carImageThree = loadImage("Assets/car3.png");
+  carImage = [carImageOne, carImageTwo, carImageThree]
 }
 
 //withou this, nothing can be drawn
@@ -48,15 +49,12 @@ function showPlayer() {
   image(yourImage, xPlayer,yPlayer, 30, 25);
 }
 
-//function being used to display the cars
+//function being used to display the cars and loop the display instructions
 function showCars(){
-  image(carImageOne,xCars[0], yCars[0], 80,40);
-  image(carImageTwo,xCars[1], yCars[1], 80,40);
-  
-  image(carImageThree,xCars[2], yCars[2], 80,40);
-  
+  for(let i = 0; i < carImage.length; i++){
+  image(carImage[i],xCars[i], yCars[i], 80,40);  
   print(yCars[i], xCars[i]);
-  
+  }
 }
 
 //cars speed
