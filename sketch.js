@@ -59,27 +59,23 @@ function showCars(){
 
 //cars speed
 function moveCar(){
-xCars[0] -= carSpeed[0];
-xCars[1] -= carSpeed[1];  
-xCars[2] -= carSpeed[2];  
+  for (let i = 0; i < carImage.length; i++) {
+xCars[i] -= carSpeed[i];
+  } 
 }
 
 //function that brings the cars back after they vanish
 
 function goBack(){
-  if (xCars[0] < -50 ){
-  xCars[0] = xCarLoop[0];
-  yCars[0] = yCarLoop[0];
+  for (let i = 0; i < carImage.length; i++){
+  if (CarDisappeared(xCars[i])){
+  xCars[i] = xCarLoop[i];
   }
-  if (xCars[1] < -40 ){
-  xCars[1] = xCarLoop[1];
-  yCars[1] = yCarLoop[1];
-  }
-  if (xCars[2] < -45 ){
-   xCars[2] = xCarLoop[2];
-  yCars[2] = yCarLoop[2];
-  }
-  
+}  
+}
+
+function CarDisappeared(xCars){
+  return xCars < -50;
 }
 
 //player movements
