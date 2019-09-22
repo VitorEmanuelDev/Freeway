@@ -1,10 +1,11 @@
-//road variables
+  //road variables
 let roadImage;
 
 //player variables
 let yourImage;
 let yPlayer = 370;
 let xPlayer = 70;
+let collision = false;
 
 //car variables
 let i = 0;
@@ -16,6 +17,8 @@ let yCarLoop = [50, 150, 250];
 let carImageOne;
 let carImageTwo;
 let carImageThree;
+let carWidth = 80;
+let carHeigth = 40;
 
 
 
@@ -42,6 +45,7 @@ function draw() {
   moveCar();
   movePlayer();
   goBack();
+  verifyCollision();
 }
 
 //functions used to position and size the player
@@ -52,7 +56,7 @@ function showPlayer() {
 //function being used to display the cars and loop the display instructions
 function showCars(){
   for(let i = 0; i < carImage.length; i++){
-  image(carImage[i],xCars[i], yCars[i], 80,40);  
+  image(carImage[i],xCars[i], yCars[i],carWidth,carHeigth);  
   print(yCars[i], xCars[i]);
   }
 }
@@ -76,6 +80,20 @@ function goBack(){
 
 function CarDisappeared(xCars){
   return xCars < -50;
+}
+
+function verifyCollision(){
+ //collideRectCircle = function (rx, ry, rw, rh, cx, cy, diameter)
+  for(let i = 0; i < carImage.length; i++){
+  collision = collideRectCircle(xCars[i], yCars[i], carWidth, carHeigth, xPlayer, yPlayer, 15)
+    if(collision){
+    collided();
+    }
+  }
+}
+
+function collided(){
+  yPlayer = 370;
 }
 
 //player movements
