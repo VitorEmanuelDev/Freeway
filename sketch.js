@@ -1,4 +1,4 @@
-  //road variables
+//road variables
 let roadImage;
 
 //player variables
@@ -9,11 +9,11 @@ let collision = false;
 
 //car variables
 let i = 0;
-let yCars = [40, 150, 250];
-let xCars = [100, 700, 800];
-let carSpeed = [10, 8, 12];
-let xCarLoop = [950, 745, 805];
-let yCarLoop = [50, 150, 250];
+let yCars = [40, 150, 260, 90, 210, 310];
+let xCars = [600, 700, 800,640, 780, 820];
+let carSpeed = [10, 8, 12, 6, 4, 14];
+let xCarLoop = [950, 745, 805, 900, 730, 810];
+let yCarLoop = [40, 150, 260, 90, 210, 310];
 let carImageOne;
 let carImageTwo;
 let carImageThree;
@@ -24,12 +24,12 @@ let carHeigth = 40;
 
 //functions being used to get images that are going to be display with the function draw
 function preload(){
-  roadImage = loadImage("Assets/road.png");
-  yourImage = loadImage("Assets/you.png");  
-  carImageOne = loadImage("Assets/car1.png");
-  carImageTwo = loadImage("Assets/car-2.png");
-  carImageThree = loadImage("Assets/car3.png");
-  carImage = [carImageOne, carImageTwo, carImageThree]
+  roadImage = loadImage("road.png");
+  yourImage = loadImage("you.png");  
+  carImageOne = loadImage("car1.png");
+  carImageTwo = loadImage("car-2.png");
+  carImageThree = loadImage("car3.png");
+  carImage = [carImageThree, carImageOne,carImageThree, carImageTwo,carImageTwo,carImageOne]
 }
 
 //withou this, nothing can be drawn
@@ -99,15 +99,15 @@ function collided(){
 //player movements
 function movePlayer(){
 if (keyIsDown (UP_ARROW)){
-  yPlayer -= 1;
+  yPlayer -= 3;
   }
 if (keyIsDown (DOWN_ARROW)){
-  yPlayer += 1;
+  yPlayer += 3;
 }
 if (keyIsDown (RIGHT_ARROW)){
-  xPlayer += 1;
+  xPlayer += 3;
 }
 if (keyIsDown (LEFT_ARROW)){
-  xPlayer -= 1;
+  xPlayer -= 3;
 }
 }
