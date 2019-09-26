@@ -6,14 +6,15 @@ let yourImage;
 let yPlayer = 370;
 let xPlayer = 70;
 let collision = false;
+let myPoints = 0;
 
 //car variables
 let i = 0;
-let yCars = [40, 150, 260, 90, 210, 310];
-let xCars = [600, 700, 800,640, 780, 820];
-let carSpeed = [10, 8, 12, 6, 4, 14];
-let xCarLoop = [950, 745, 805, 900, 730, 810];
-let yCarLoop = [40, 150, 260, 90, 210, 310];
+let yCars = [40, 150, 260];
+let xCars = [600, 700, 800];
+let carSpeed = [10, 8, 12];
+let xCarLoop = [950, 745, 805];
+let yCarLoop = [40, 150, 260];
 let carImageOne;
 let carImageTwo;
 let carImageThree;
@@ -24,12 +25,12 @@ let carHeigth = 40;
 
 //functions being used to get images that are going to be display with the function draw
 function preload(){
-  roadImage = loadImage("Assets/road.png");
-  yourImage = loadImage("Assets/you.png");  
-  carImageOne = loadImage("Assets/car1.png");
-  carImageTwo = loadImage("Assets/car-2.png");
-  carImageThree = loadImage("Assets/car3.png");
-  carImage = [carImageThree, carImageOne,carImageThree, carImageTwo,carImageTwo,carImageOne]
+  roadImage = loadImage("road.png");
+  yourImage = loadImage("you.png");  
+  carImageOne = loadImage("car1.png");
+  carImageTwo = loadImage("car-2.png");
+  carImageThree = loadImage("car3.png");
+  carImage = [carImageThree, carImageOne, carImageTwo]
 }
 
 //withou this, nothing can be drawn
@@ -46,6 +47,8 @@ function draw() {
   movePlayer();
   goBack();
   verifyCollision();
+  includePoints();
+  scorePoints()
 }
 
 //functions used to position and size the player
@@ -87,14 +90,30 @@ function verifyCollision(){
   for(let i = 0; i < carImage.length; i++){
   collision = collideRectCircle(xCars[i], yCars[i], carWidth, carHeigth, xPlayer, yPlayer, 15)
     if(collision){
-    collided();
+    initialPosition();
     }
   }
 }
 
-function collided(){
+function initialPosition(){
   yPlayer = 370;
 }
+
+function includePoints(){
+  textAlign(CENTER);
+textSize(25);
+  fill(color(125, 265, 100));
+text(myPoints, width/5, 26);
+}
+
+function scorePoints(){
+  if(yPlayer < 15){
+  myPoints = i++;
+  initialPosition();
+  }
+}
+
+
 
 //player movements
 function movePlayer(){
