@@ -15,11 +15,16 @@ let xCars = [600, 700, 800];
 let carSpeed = [10, 8, 12];
 let xCarLoop = [950, 745, 805];
 let yCarLoop = [40, 150, 260];
+
+//car images and sounds
 let carImageOne;
 let carImageTwo;
 let carImageThree;
 let carWidth = 80;
 let carHeigth = 40;
+let sounTrack;
+let soundCollision;
+let soundPoint;
 
 
 
@@ -31,11 +36,16 @@ function preload(){
   carImageTwo = loadImage("Assets/car-2.png");
   carImageThree = loadImage("Assets/car3.png");
   carImage = [carImageThree, carImageOne, carImageTwo]
+  
+  soundTrack = loadSound("Assets/Sounds/track.mp3");
+  soundCollision = loadSound("Assets/Sounds/hit.mp3");
+  soundPoint = loadSound("Assets/Sounds/points.wav");
 }
 
 //withou this, nothing can be drawn
 function setup() {
   createCanvas(500, 400);
+  soundTrack.loop();
 } 
 
 //function used to display all elements being treated by functions and execute their behaviours
@@ -92,7 +102,7 @@ function verifyCollision(){
   collision = collideRectCircle(xCars[i], yCars[i], carWidth, carHeigth, xPlayer, yPlayer, 15)
     if(collision){
     initialPosition();
-      if(pointsAboveZero()){
+    soundCollision.play() ;     if(pointsAboveZero()){
         myPoints -= 1;
       }
     }
@@ -113,6 +123,7 @@ text(myPoints, width/5, 26);
 function scorePoints(){
   if(yPlayer < 15){
   myPoints += 1;
+    soundPoint.play();
   initialPosition();
   }
 }
