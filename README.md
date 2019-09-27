@@ -1,2 +1,2 @@
-# Road-Crossing-Game
+# FreeWay Alura
 JS fundamentals Practice 
