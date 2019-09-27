@@ -1,2 +1,2 @@
-# FreeWay Alura
-JS fundamentals Practice 
+# Freeway 
+Practice project made through Alura's introductory course on programming logic.
