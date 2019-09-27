@@ -48,7 +48,8 @@ function draw() {
   goBack();
   verifyCollision();
   includePoints();
-  scorePoints()
+  scorePoints();
+  pointsAboveZero();
 }
 
 //functions used to position and size the player
@@ -91,6 +92,9 @@ function verifyCollision(){
   collision = collideRectCircle(xCars[i], yCars[i], carWidth, carHeigth, xPlayer, yPlayer, 15)
     if(collision){
     initialPosition();
+      if(pointsAboveZero()){
+        myPoints -= 1;
+      }
     }
   }
 }
@@ -108,11 +112,14 @@ text(myPoints, width/5, 26);
 
 function scorePoints(){
   if(yPlayer < 15){
-  myPoints = i++;
+  myPoints += 1;
   initialPosition();
   }
 }
 
+function pointsAboveZero(){
+  return myPoints > 0;
+}
 
 
 //player movements
@@ -121,7 +128,9 @@ if (keyIsDown (UP_ARROW)){
   yPlayer -= 3;
   }
 if (keyIsDown (DOWN_ARROW)){
+  if (canMove()){
   yPlayer += 3;
+  }
 }
 if (keyIsDown (RIGHT_ARROW)){
   xPlayer += 3;
@@ -129,4 +138,8 @@ if (keyIsDown (RIGHT_ARROW)){
 if (keyIsDown (LEFT_ARROW)){
   xPlayer -= 3;
 }
+}
+
+function canMove(){
+  return yPlayer < 370;
 }
